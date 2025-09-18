@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GYM Chúa - Trang chủ</title>
+    <title>UNITY FITNESS - Trang chủ</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -13,7 +13,22 @@
         <!-- Banner Section -->
         <section class="banner-section">
             <div class="banner-content">
-                 <h1>Banner Quản Lý Phòng Gym</h1>
+                <div class="banner-text">
+                    <h1>UNITY FITNESS - Quản Lý Phòng Gym</h1>
+                    <p>Hệ thống quản lý phòng gym hiện đại và tiện lợi</p>
+                </div>
+                <div class="banner-image">
+                    <div class="image-slider">
+                        <img src="https://cdn.unityfitness.vn/2025/05/anh-phong-tap-Gym-1.jpg" alt="Phòng tập Gym hiện đại" class="slider-image active" />
+                        <img src="https://tse2.mm.bing.net/th/id/OIP.uXj9fAkMh5al_O-9T4JTUgHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Phòng tập Gym hiện đại" class="slider-image" />
+                        <img src="https://th.bing.com/th/id/OIP.xgAiHSHwGXT0vFVbDgqZ7QHaE8?w=289&h=193&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Phòng tập Gym hiện đại" class="slider-image" />
+                    </div>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -42,15 +57,6 @@
     
     <div id="footer-container"></div>
     
-    <!-- Floating buttons -->
-    <div class="floating-buttons">
-        <button class="floating-btn language-btn" title="Thay đổi ngôn ngữ">
-            <span>Aa</span>
-        </button>
-        <button class="floating-btn map-btn" title="Bản đồ">
-            <span>📍</span>
-        </button>
-    </div>
     
     <!-- Simple Database using localStorage -->
     <script src="js/simple-database.js"></script>

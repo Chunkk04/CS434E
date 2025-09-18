@@ -11,6 +11,7 @@ function initializeApp() {
     loadFooter();
     setupEventListeners();
     checkAuthStatus();
+    initializeImageSlider();
 }
 
 // Load navbar
@@ -19,7 +20,9 @@ function loadNavbar() {
     if (navbarContainer) {
         navbarContainer.innerHTML = `
             <nav class="navbar">
-                <a href="index.html" class="logo">GYMGYM</a>
+                <a href="index.html" class="logo">
+                    <img src="images/logo.svg" alt="UNITY FITNESS" class="logo-img" />
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Trang chủ</a></li>
                     ${window.db.isLoggedIn() ? `
@@ -41,7 +44,7 @@ function loadFooter() {
     if (footerContainer) {
         footerContainer.innerHTML = `
             <div class="footer">
-                <p>&copy; 2024 GYMGYM - Hệ thống quản lý phòng gym. Tất cả quyền được bảo lưu.</p>
+                <p>&copy; 2025 UNITY FITNESS</p>
             </div>
         `;
     }
@@ -61,8 +64,6 @@ function setupEventListeners() {
         registerForm.addEventListener('submit', handleRegister);
     }
 
-    // Floating buttons
-    setupFloatingButtons();
 }
 
 // Handle login form submission
@@ -169,23 +170,6 @@ function checkAuthStatus() {
     }
 }
 
-// Setup floating buttons
-function setupFloatingButtons() {
-    const languageBtn = document.querySelector('.language-btn');
-    const mapBtn = document.querySelector('.map-btn');
-    
-    if (languageBtn) {
-        languageBtn.addEventListener('click', function() {
-            showAlert('Tính năng thay đổi ngôn ngữ đang được phát triển!', 'info');
-        });
-    }
-    
-    if (mapBtn) {
-        mapBtn.addEventListener('click', function() {
-            showAlert('Tính năng bản đồ đang được phát triển!', 'info');
-        });
-    }
-}
 
 // Show forgot password modal (placeholder)
 function showForgotPassword() {
@@ -205,7 +189,77 @@ function formatCurrency(amount) {
     }).format(amount);
 }
 
+// Image Slider Functions
+let currentSlideIndex = 0;
+let slideInterval;
+
+function initializeImageSlider() {
+    const images = document.querySelectorAll('.slider-image');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (images.length === 0) return;
+    
+    // Auto slide every 4 seconds
+    slideInterval = setInterval(nextSlide, 4000);
+    
+    // Pause on hover
+    const slider = document.querySelector('.image-slider');
+    if (slider) {
+        slider.addEventListener('mouseenter', pauseSlider);
+        slider.addEventListener('mouseleave', resumeSlider);
+    }
+}
+
+function nextSlide() {
+    const images = document.querySelectorAll('.slider-image');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (images.length === 0) return;
+    
+    // Remove active class from current slide
+    images[currentSlideIndex].classList.remove('active');
+    dots[currentSlideIndex].classList.remove('active');
+    
+    // Move to next slide
+    currentSlideIndex = (currentSlideIndex + 1) % images.length;
+    
+    // Add active class to new slide
+    images[currentSlideIndex].classList.add('active');
+    dots[currentSlideIndex].classList.add('active');
+}
+
+function currentSlide(n) {
+    const images = document.querySelectorAll('.slider-image');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (images.length === 0) return;
+    
+    // Remove active class from current slide
+    images[currentSlideIndex].classList.remove('active');
+    dots[currentSlideIndex].classList.remove('active');
+    
+    // Set new slide index
+    currentSlideIndex = n - 1;
+    
+    // Add active class to new slide
+    images[currentSlideIndex].classList.add('active');
+    dots[currentSlideIndex].classList.add('active');
+    
+    // Reset auto slide timer
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 4000);
+}
+
+function pauseSlider() {
+    clearInterval(slideInterval);
+}
+
+function resumeSlider() {
+    slideInterval = setInterval(nextSlide, 4000);
+}
+
 // Export functions for global use
 window.logout = logout;
 window.showForgotPassword = showForgotPassword;
 window.showAlert = showAlert;
+window.currentSlide = currentSlide;
