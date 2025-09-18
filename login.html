@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GYMGYM - Đăng Nhập</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+
+    <main class="main-content">
+      <div class="container">
+        <div class="login-container">
+          <div class="login-card">
+            <div class="login-header">
+              <h1>Quản Lý Phòng Gym</h1>
+              <h2>Đăng Nhập Tài Khoản</h2>
+            </div>
+
+            <form class="auth-form" id="loginForm">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Nhập email của bạn"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <div class="password-header">
+                  <label for="password">Mật khẩu</label>
+                  <a
+                    href="#"
+                    class="forgot-password-link"
+                    onclick="showForgotPassword()"
+                    >Quên mật khẩu?</a
+                  >
+                </div>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Nhập mật khẩu"
+                  required
+                />
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                Đăng Nhập
+              </button>
+            </form>
+
+            <div class="auth-footer">
+              <p>
+                Bạn chưa có tài khoản?
+                <a href="register.html" class="auth-link">Đăng ký ngay</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <!-- Simple Database using localStorage -->
+    <script src="js/simple-database.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

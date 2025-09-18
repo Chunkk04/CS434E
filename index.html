@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Phòng Gym</title>
+    <title>GYM Chúa - Trang chủ</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Dự án quản lý phòng gym</h1>
+    <div id="navbar-container"></div>
+    
+    <main class="main-content">
+        <!-- Banner Section -->
+        <section class="banner-section">
+            <div class="banner-content">
+                 <h1>Banner Quản Lý Phòng Gym</h1>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                         <h3>Quản lý tiện lợi</h3>
+                         <p>Dễ dàng quản lý thành viên, gói tập và thông tin phòng gym của bạn.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                         <h3>Tìm kiếm thông minh</h3>
+                         <p>Bộ lọc mạnh mẽ giúp bạn tìm kiếm gói tập phù hợp với mọi nhu cầu.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                         <h3>Kết nối nhanh chóng</h3>
+                         <p>Liên hệ trực tiếp với huấn luyện viên và đặt lịch tập nhanh chóng.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div id="footer-container"></div>
+    
+    <!-- Floating buttons -->
+    <div class="floating-buttons">
+        <button class="floating-btn language-btn" title="Thay đổi ngôn ngữ">
+            <span>Aa</span>
+        </button>
+        <button class="floating-btn map-btn" title="Bản đồ">
+            <span>📍</span>
+        </button>
+    </div>
+    
+    <!-- Simple Database using localStorage -->
+    <script src="js/simple-database.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
